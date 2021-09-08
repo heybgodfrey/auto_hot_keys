@@ -9,7 +9,6 @@ IniRead, showTeam, %ini%, clientTeam, KEY1
 IniRead, showEmail, %ini%, clientEmail, KEY1
 IniRead, showTarget, %ini%, targetSettings, KEY1
 IniRead, showSuggest, %ini%, suggestSettings, KEY1
-IniRead, showDownloadPath, %ini%, downloadPath, KEY1
 
 DetectHiddenWindows, On
 SetTitleMatchMode, 2
@@ -24,8 +23,6 @@ Menu, Tray, Add ,,
 Menu, Tray, Add , Custom Hotkeys, CustomHotkeys
 Menu, Tray, Add ,,
 Menu, Tray, Add , Hotkeys Manual, Manual
-Menu, Tray, Add ,,
-Menu, Tray, Add , Reboot AHK, Reboot
 Menu, Tray, Add ,,
 Menu, Tray, Add , Settings, CustomHotkeys
 Menu, Tray, Add ,,
@@ -47,9 +44,9 @@ IfWinNotExist, %A_scriptdir%\usercreated.ahk
 	Run, %A_ScriptDir%\userCreated.ahk, ,UseErrorLevel
 }
 
-if (showEmail = "ERROR")
-Run, %A_ScriptDir%\setup.ahk
 
+if (showTeam = "ERROR")
+Run, %A_ScriptDir%\setup.ahk
 
 if (showTarget = "new")
 target := "-new-window"
@@ -75,6 +72,12 @@ else
 IfWinExist, %A_ScriptDir%\setup.ahk
 WinKill, %A_ScriptDir%\setup.ahk
 
+IfWinExist, %A_ScriptDir%\service.ahk
+WinKill, %A_ScriptDir%\service.ahk
+
+IfWinExist, %A_ScriptDir%\monitor.ahk
+WinKill, %A_ScriptDir%\monitor.ahk
+
 IfWinExist, %A_ScriptDir%\usercreated.ahk
 WinKill, %A_ScriptDir%\usercreated.ahk
 
@@ -97,6 +100,9 @@ ExitApp
 }
 Return
 
+Service:
+Run, %A_ScriptDir%\service.ahk
+Return
 
 Manual:
 Run, %A_ScriptDir%\manual.ahk
@@ -136,6 +142,10 @@ SplashImage, Off
 imageOn = 0
 }
 Return
+
+$F10::
+run %A_ScriptDir%\service.ahk
+return
 
 $F9::
 run, %A_ScriptDir%\setup.ahk,, UseErrorLevel
