@@ -435,7 +435,7 @@ Return
 
 Feedback:
 direction = https://inkernet.customink.com/pages/viewpage.action?pageId=471203956
-Run, %BrowExe% %direction%
+Run, %direction%
 Gui, theChoice:destroy
 Gui, theSettings:destroy
 Gui, theSettings1:destroy
