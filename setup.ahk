@@ -472,7 +472,7 @@ GuiWidth = 600
 Gui, theCustom:Add, Picture, w180 h-1 vLogo, %A_ScriptDir%\images\ahk_manual.jpg
 Gui, theCustom:Add, Picture, w150 h-1 vSettings gSettings, %A_ScriptDir%\images\settings.jpg
 Gui, theCustom:Add, Picture, w150 h-1 vCustom gCustom, %A_ScriptDir%\images\custom_hotkeys.jpg
-Gui, theCustom:Add, Picture, w150 h-1 vSpelling gSpelling, %A_ScriptDir%\images\spelling.jpg
+Gui, theCustom:Add, Picture, w150 h-1 vSpelling, %A_ScriptDir%\images\spelling.jpg
 Gui, theCustom:Add, Picture, w140 h-1 vExit gGuiClose, %A_ScriptDir%\images\exit.jpg
 Gui, theCustom:Color, FFFFFF
 Gui, theCustom:Font, S26, w700
@@ -6045,7 +6045,7 @@ GuiWidth = 600
 
 Gui, theSuggestSpelling:Add, Picture, w180 h-1 vLogo gLogo, %A_ScriptDir%\images\ahk_manual.jpg
 Gui, theSuggestSpelling:Add, Picture, w140 h-1 vExit gGuiClose, %A_ScriptDir%\images\exit.jpg
-Gui, theSuggestSpelling:Add, Picture, w140 h-1 vGoBack gSpelling, %A_ScriptDir%\images\go_back.jpg
+Gui, theSuggestSpelling:Add, Picture, w140 h-1 vGoBack, %A_ScriptDir%\images\go_back.jpg
 Gui, theSuggestSpelling:Add, Picture, w140 h-1 vOutputSuggest gOutputSuggest, %A_ScriptDir%\images\save.jpg
 Gui, theSuggestSpelling:Color, FFFFFF
 Gui, theSuggestSpelling:Font, S18, w700
