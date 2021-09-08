@@ -434,7 +434,7 @@ gosub, theChoiceGuiClose
 Return
 
 Feedback:
-direction = http://goo.gl/forms/KJL6994N0q
+direction = https://inkernet.customink.com/pages/viewpage.action?pageId=471203956
 Run, %direction%
 Gui, theChoice:destroy
 Gui, theSettings:destroy
