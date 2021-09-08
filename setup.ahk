@@ -1,4 +1,4 @@
-﻿#SingleInstance force
+#SingleInstance force
 
 ; AHK Setup
 
@@ -21,6 +21,7 @@ Return
 
 IfExist, %INI%
 {
+; If full name is not completed, head back to SetupMenu
 if (showFull = checkError)
 {
 gosub, SetupMenu
@@ -28,16 +29,19 @@ Return
 }
 else if (showNick = checkError)
 {
+; If nickname is not completed, head back to SetupMenu
 gosub, SetupMenu
 Return
 }
 else if (showEmail = checkError)
 {
+; If email is not completed, head back to SetupMenu
 gosub, SetupMenu
 Return
 }
 else if (showSkill = checkError)
 {
+; If skill is not completed, head back to SetupMenu
 gosub, SetupMenu
 Return
 }
@@ -340,6 +344,12 @@ Return
 
 ClientSetupFinish:
 ; Creating the INI file.
+; Setup is complete, let's make sure that the files are present on the User's desktop. 
+; If not, we will assume that we've just completed user setup and will copy the files to the User's desktop.
+; After this, we will launch the setup.ahk file on the User's desktop, write the path of the download to the settings file
+; and then will launch the setup.ahk file on the User's desktop. Finally, we can close this setup file after that.
+; We need to add logic to the opening of this script that will read the settings file to see if the download_path is present.
+; If so, we will delete that folder entirely and this should include the zip file.
 
 
 	if (Skill = "Advanced")
@@ -383,7 +393,8 @@ ClientSetupFinish:
 		WinWaitClose, i)%closingFile%.* ahk_class AutoHotkey, , 2
 		}
 		
-	run, %A_ScriptDir%\master.ahk
+		
+	run, C:\Users\%A_UserName%\Desktop\AHK\master.ahk
 	FileDelete, %DownloadINI%
 	
 	gosub, KeepGoing
