@@ -9,6 +9,7 @@ IniRead, showTeam, %ini%, clientTeam, KEY1
 IniRead, showEmail, %ini%, clientEmail, KEY1
 IniRead, showTarget, %ini%, targetSettings, KEY1
 IniRead, showSuggest, %ini%, suggestSettings, KEY1
+IniRead, showDownloadPath, %ini%, downloadPath, KEY1
 
 DetectHiddenWindows, On
 SetTitleMatchMode, 2
@@ -25,8 +26,6 @@ Menu, Tray, Add ,,
 Menu, Tray, Add , Hotkeys Manual, Manual
 Menu, Tray, Add ,,
 Menu, Tray, Add , Reboot AHK, Reboot
-Menu, Tray, Add ,,
-Menu, Tray, Add , Service Central, Service
 Menu, Tray, Add ,,
 Menu, Tray, Add , Settings, CustomHotkeys
 Menu, Tray, Add ,,
@@ -48,9 +47,9 @@ IfWinNotExist, %A_scriptdir%\usercreated.ahk
 	Run, %A_ScriptDir%\userCreated.ahk, ,UseErrorLevel
 }
 
-
-if (showTeam = "ERROR")
+if (showEmail = "ERROR")
 Run, %A_ScriptDir%\setup.ahk
+
 
 if (showTarget = "new")
 target := "-new-window"
@@ -76,12 +75,6 @@ else
 IfWinExist, %A_ScriptDir%\setup.ahk
 WinKill, %A_ScriptDir%\setup.ahk
 
-IfWinExist, %A_ScriptDir%\service.ahk
-WinKill, %A_ScriptDir%\service.ahk
-
-IfWinExist, %A_ScriptDir%\monitor.ahk
-WinKill, %A_ScriptDir%\monitor.ahk
-
 IfWinExist, %A_ScriptDir%\usercreated.ahk
 WinKill, %A_ScriptDir%\usercreated.ahk
 
@@ -104,9 +97,6 @@ ExitApp
 }
 Return
 
-Service:
-Run, %A_ScriptDir%\service.ahk
-Return
 
 Manual:
 Run, %A_ScriptDir%\manual.ahk
@@ -146,10 +136,6 @@ SplashImage, Off
 imageOn = 0
 }
 Return
-
-$F10::
-run %A_ScriptDir%\service.ahk
-return
 
 $F9::
 run, %A_ScriptDir%\setup.ahk,, UseErrorLevel
@@ -273,7 +259,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-I noticed your design includes protected content owned by a band or artist. We cannot print your design as it is right now, but, with a few adjustments, I can make sure your design is still something special that wonít compete with official merchandise regulations. 
+I noticed your design includes protected content owned by a band or artist. We cannot print your design as it is right now, but, with a few adjustments, I can make sure your design is still something special that won‚Äôt compete with official merchandise regulations. 
 )
 clipwait
 send ^v
@@ -294,7 +280,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-I noticed that your design includes protected content owned by a sports franchise. We cannot print your design as it is right now, but, with a few adjustments, I can make sure your design is still something special that wonít compete with official merchandise regulations. Can I send you a few alternate designs that would fix this issue?
+I noticed that your design includes protected content owned by a sports franchise. We cannot print your design as it is right now, but, with a few adjustments, I can make sure your design is still something special that won‚Äôt compete with official merchandise regulations. Can I send you a few alternate designs that would fix this issue?
 )
 clipwait
 send ^v
@@ -315,7 +301,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-All Greek orders go through a comprehensive review process to make sure the design follows your organizationís particular set of regulations for use. This process takes place after your order is placed but before we start printing your design. If we have any questions or clarifications, weíll be in touch soon. 
+All Greek orders go through a comprehensive review process to make sure the design follows your organization‚Äôs particular set of regulations for use. This process takes place after your order is placed but before we start printing your design. If we have any questions or clarifications, we‚Äôll be in touch soon. 
 )
 clipwait
 send ^v
@@ -359,7 +345,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-I noticed  that your design includes protected content owned by a celebrity. We cannot print your design as it is right now, but, with a few adjustments, I can make sure your design is still something special that wonít compete with official merchandise regulations. 
+I noticed  that your design includes protected content owned by a celebrity. We cannot print your design as it is right now, but, with a few adjustments, I can make sure your design is still something special that won‚Äôt compete with official merchandise regulations. 
 )
 clipwait
 send ^v
@@ -401,7 +387,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-I noticed that your design uses collegiate content that is protected. Colleges can control the use of any names, mascots, and logos associated with the school.  We have a team of specialists who will review your order to ensure that we can print your specific content in line with  your schoolís particular regulations. If we have questions or need clarification, we will reach out to you with more info.
+I noticed that your design uses collegiate content that is protected. Colleges can control the use of any names, mascots, and logos associated with the school.  We have a team of specialists who will review your order to ensure that we can print your specific content in line with  your school‚Äôs particular regulations. If we have questions or need clarification, we will reach out to you with more info.
 )
 clipwait
 send ^v
@@ -502,7 +488,7 @@ else
 {
 clipboard=
 (
-Iím happy to help you put together a custom design! I really like your design idea and I'm sure that we can create something amazing using our art and text from the Design Lab.
+I‚Äôm happy to help you put together a custom design! I really like your design idea and I'm sure that we can create something amazing using our art and text from the Design Lab.
 )
 }
 
@@ -532,7 +518,7 @@ Please click on the link below to check out your design:
 
 %incNumber%
 
-How does that look? Please let me know if there are any changes youíd like me to make and Iíll be happy to do so!  
+How does that look? Please let me know if there are any changes you‚Äôd like me to make and I‚Äôll be happy to do so!  
 )
 clipwait
 send ^v
@@ -607,7 +593,7 @@ if (which = 1)
 {
 clipboard=
 (
-If you can respond to the email I'm sending with your artwork attached, Iíll take it from there! Of course, if there are any adjustments or changes you would like me to make to your artwork, feel free to include those details and Iíll take care of those as well.
+If you can respond to the email I'm sending with your artwork attached, I‚Äôll take it from there! Of course, if there are any adjustments or changes you would like me to make to your artwork, feel free to include those details and I‚Äôll take care of those as well.
 )
 }
 else
@@ -639,7 +625,7 @@ prevClip := Clipboard
 
 clipboard=
 (
-Thank you for placing your order with us for your customized art design. Weíre excited to see what the artists create for you to bring your idea to life! Below are the details of your order:
+Thank you for placing your order with us for your customized art design. We‚Äôre excited to see what the artists create for you to bring your idea to life! Below are the details of your order:
 
 DESIGN UPGRADE or CUSTOM DESIGN PACKAGE or MULTI-PACKAGE ($COSTTHEYPAID)
 Your package includes #OFFREEREVISIONS based on your package
@@ -678,7 +664,7 @@ if (which = 1)
 {
 clipboard=
 (
-Sometimes our Design Lab thinks white is actually a background color, so it gets removed from the image. If you reply to the email I sent with your artwork attached, Iíd be happy to adjust it for you!  Our art team can make those adjustments for you once your order is placed! 
+Sometimes our Design Lab thinks white is actually a background color, so it gets removed from the image. If you reply to the email I sent with your artwork attached, I‚Äôd be happy to adjust it for you!  Our art team can make those adjustments for you once your order is placed! 
 )
 }
 else
@@ -720,7 +706,7 @@ if (which = 1)
 {
 clipboard=
 (
-If youíd like to continue working on this by yourself, you can change your design color to black and then upload it into the Lab again. It will allow you to upload it and then change the color back to white, or any color you prefer!
+If you‚Äôd like to continue working on this by yourself, you can change your design color to black and then upload it into the Lab again. It will allow you to upload it and then change the color back to white, or any color you prefer!
 )
 which =
 clipwait
@@ -796,7 +782,7 @@ if (which = 1)
 {
 clipboard=
 (
-To make sure you get top-quality printed products, we prefer to work with high resolution artwork. If youíd like your artwork to print at a specific size and donít have a higher resolution image available, we offer free redraw services for orders of 6 or more pieces. After you place your order and complete your payment, our expert design team will redraw your design. Weíll then show you the final design in a free proof email. 
+To make sure you get top-quality printed products, we prefer to work with high resolution artwork. If you‚Äôd like your artwork to print at a specific size and don‚Äôt have a higher resolution image available, we offer free redraw services for orders of 6 or more pieces. After you place your order and complete your payment, our expert design team will redraw your design. We‚Äôll then show you the final design in a free proof email. 
 )
 }
 else
@@ -887,7 +873,7 @@ else
 {
 clipboard=
 (
-You can definitely mix different colors of the same item in our Design Lab! If you click on "Your Items," you'll see the option to "Add Another Color" of the same item. If you'd like, Iím happy to take care of adding those colors for you! I just need to know what colors you would like to add.
+You can definitely mix different colors of the same item in our Design Lab! If you click on "Your Items," you'll see the option to "Add Another Color" of the same item. If you'd like, I‚Äôm happy to take care of adding those colors for you! I just need to know what colors you would like to add.
 )
 }
 
@@ -922,7 +908,7 @@ if (which = 1)
 {
 clipboard=
 (
-We can mix and match different styles in the same order! You can select complimentary styles in our Design Lab by clicking ìYour Itemsî tab to see which complementary styles are available. If the style you want to add isnít displayed, I can add it in for you!
+We can mix and match different styles in the same order! You can select complimentary styles in our Design Lab by clicking ‚ÄúYour Items‚Äù tab to see which complementary styles are available. If the style you want to add isn‚Äôt displayed, I can add it in for you!
 )
 }
 else
@@ -931,7 +917,7 @@ clipboard=
 (
 You can definitely mix and match different styles in the same order! The Design Lab allows you to add select styles that match the original item style you picked. If you're in the Design Lab, click on the "Items" tab and you'll be given the option to add another style to your order. Once you've selected the additional style, you'll see all the style options listed out with your design on each one! 
 
-If the style you're most interested in isnít listed, just give us a call and weíll see if we can add it on our end. 
+If the style you're most interested in isn‚Äôt listed, just give us a call and we‚Äôll see if we can add it on our end. 
 )
 }
 
@@ -1009,7 +995,7 @@ if (which = 1)
 {
 clipboard=
 (
-After you place your order, we can have our expert design team redraw your design to ensure a high quality print! Weíll then show you the final design in a free proof email. 
+After you place your order, we can have our expert design team redraw your design to ensure a high quality print! We‚Äôll then show you the final design in a free proof email. 
 )
 }
 else
@@ -1068,16 +1054,16 @@ Custom Ink Creative Services will bring your dream design to life! Whether you h
 
 If that works for you, I need some information to get started.
 
-ï	Your deadline - we recommend having at least 2 weeks to work with
-ï	Your shipping zip code and budget (if any)
-ï	Desired product and color, as well as quantity. Please indicate smallest and largest sizes for apparel
-ï	Tell us your idea! Describe in detail what you'd like your design to look like: imagery you have in mind, colors you'd like included (or not), text you'd like to accompany the design and what style (if any), where do you
-ï	Send us design inspiration images or examples of what you'd like if you have them!
-ï	Your phone number in case we need to reach you for any additional details
+‚Ä¢	Your deadline - we recommend having at least 2 weeks to work with
+‚Ä¢	Your shipping zip code and budget (if any)
+‚Ä¢	Desired product and color, as well as quantity. Please indicate smallest and largest sizes for apparel
+‚Ä¢	Tell us your idea! Describe in detail what you'd like your design to look like: imagery you have in mind, colors you'd like included (or not), text you'd like to accompany the design and what style (if any), where do you
+‚Ä¢	Send us design inspiration images or examples of what you'd like if you have them!
+‚Ä¢	Your phone number in case we need to reach you for any additional details
 
 The more information you can provide, the better, so we can create something that is exclusively designed for you!
 
-Once the design is ready, youíll receive an email from the artist including a link to the finalized custom design, thoughtfully placed on the product you want to order.
+Once the design is ready, you‚Äôll receive an email from the artist including a link to the finalized custom design, thoughtfully placed on the product you want to order.
 
 *Should you require further adjustments, please note you are limited to two rounds of changes.*
 )
@@ -1283,7 +1269,7 @@ To print your order, we need to have your design sized the same on all shirts in
 
 http://www.customink.com/help_center/designs-on-different-sizes
 
-We do have an option to make an additional setup to print on the smaller sizes in your order for an additional cost. If youíre interested in doing so, I can give you a quote of how much that would cost.
+We do have an option to make an additional setup to print on the smaller sizes in your order for an additional cost. If you‚Äôre interested in doing so, I can give you a quote of how much that would cost.
 ) 
 }
 else
@@ -1343,7 +1329,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-After you place an order with us for 500+ items, we send a printed pre-production sample. You can pick the size and we'll get you a real printed shirt in about a week for orders placed on a standard turn time. With your approval, we will then complete the rest of your order. If you donít qualify for a free sample, you can have one made for $100.
+After you place an order with us for 500+ items, we send a printed pre-production sample. You can pick the size and we'll get you a real printed shirt in about a week for orders placed on a standard turn time. With your approval, we will then complete the rest of your order. If you don‚Äôt qualify for a free sample, you can have one made for $100.
 )
 clipwait
 send ^v
@@ -1848,7 +1834,7 @@ Every Custom Ink order comes with:
 *Artistic adjustments to alignment, art, or text for the best print possible
 *Free proof email to review any adjustments before printing
 *Free shipping with a guaranteed delivery date
-*Custom Inkís quality and money-back guarantee
+*Custom Ink‚Äôs quality and money-back guarantee
 )
 clipwait
 send ^v
@@ -1915,7 +1901,7 @@ IfInString, sURL, %lp%
 prevClip := Clipboard
 clipboard=
 (
-I just have to ask a couple of quick questions thatíll help me get this quote. First, how many colors are you planning to use on your sleeve print?
+I just have to ask a couple of quick questions that‚Äôll help me get this quote. First, how many colors are you planning to use on your sleeve print?
 )
 clipwait
 send ^v
@@ -1931,11 +1917,11 @@ else
 prevClip := Clipboard
 clipboard=
 (
-Hereís your quote including the sleeve print:
+Here‚Äôs your quote including the sleeve print:
 
 [INSERTQUOTE]
 
-Which sleeve would you like to have your design on and, if weíre including text on the sleeve, how would you like it to read? You can check out the different print options here:
+Which sleeve would you like to have your design on and, if we‚Äôre including text on the sleeve, how would you like it to read? You can check out the different print options here:
 
 http://www.customInk.com/help_center/print-on-the-sleeve
 
@@ -2437,7 +2423,7 @@ if (which = 1)
 {
 clipboard=
 (
-Our Group Order Form makes it easy to coordinate your groupís order online! You can share your design, collect sizes, and take individual payments. Itís free to use and helps organize orders for groups of any size. Would you like me to help you get started?
+Our Group Order Form makes it easy to coordinate your group‚Äôs order online! You can share your design, collect sizes, and take individual payments. It‚Äôs free to use and helps organize orders for groups of any size. Would you like me to help you get started?
 )
 }
 else
@@ -2493,7 +2479,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-Once your Group Order Form is started, we canít change the design that it links to. We can always cancel that form and start up a new one for you to share. Anyone who's signed up will be refunded if they've paid online and they'll need to place their order again within the new Group Order Form.
+Once your Group Order Form is started, we can‚Äôt change the design that it links to. We can always cancel that form and start up a new one for you to share. Anyone who's signed up will be refunded if they've paid online and they'll need to place their order again within the new Group Order Form.
 )
 clipwait
 send ^v
@@ -2532,7 +2518,7 @@ else
 {
 clipboard=
 (
-I can definitely help you cancel your Group Order Form. Keep in mind, anyone who has already paid online will be refunded and your group will no longer be able to use that link again. If youíre sure youíd like to cancel your entire Group Order Form, confirm that with me and I'll take care of it for you!
+I can definitely help you cancel your Group Order Form. Keep in mind, anyone who has already paid online will be refunded and your group will no longer be able to use that link again. If you‚Äôre sure you‚Äôd like to cancel your entire Group Order Form, confirm that with me and I'll take care of it for you!
 )
 }
 
@@ -2619,7 +2605,7 @@ else
 {
 clipboard=
 (
-Ok, weíre all setup here! Your order is currently pending and weíll start processing it just as soon as we complete payment. Your order number is %prevClip% and Iím sending you a confirmation email with all of your billing and tracking information. Once the payment has been received, the delivery clock for your order will begin.
+Ok, we‚Äôre all setup here! Your order is currently pending and we‚Äôll start processing it just as soon as we complete payment. Your order number is %prevClip% and I‚Äôm sending you a confirmation email with all of your billing and tracking information. Once the payment has been received, the delivery clock for your order will begin.
 )
 }
 
@@ -2654,14 +2640,14 @@ if (which = 1)
 {
 clipboard=
 (
-Ok, weíre all setup here! Your order is currently pending and weíll start processing it just as soon as we receive payment. Your order number is %prevClip% and Iím sending you a confirmation email with all of your billing details as well as a link where you can track your order. To complete payment, please click here to pay through our secure on-line system. Once the payment has been received, the delivery clock for your order will begin.
+Ok, we‚Äôre all setup here! Your order is currently pending and we‚Äôll start processing it just as soon as we receive payment. Your order number is %prevClip% and I‚Äôm sending you a confirmation email with all of your billing details as well as a link where you can track your order. To complete payment, please click here to pay through our secure on-line system. Once the payment has been received, the delivery clock for your order will begin.
 )
 }
 else
 {
 clipboard=
 (
-Ok, weíre all setup here! Your order is currently pending and weíll start processing it just as soon as we complete payment. Your order number is %prevClip% and Iím sending you a confirmation email with all of your billing and tracking information. Once the payment has been received, the delivery clock for your order will begin. To complete payment for your order, please use the link listed below:
+Ok, we‚Äôre all setup here! Your order is currently pending and we‚Äôll start processing it just as soon as we complete payment. Your order number is %prevClip% and I‚Äôm sending you a confirmation email with all of your billing and tracking information. Once the payment has been received, the delivery clock for your order will begin. To complete payment for your order, please use the link listed below:
 
 *Paste Payment Link Here*
 )
@@ -2830,7 +2816,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 incNumber := Clipboard
 clipboard=
 (
-We have different methods of printing depending on your design and the product. Hereís an explanation of our different methods! http://www.customink.com/help_center/screen-vs-digital-printing
+We have different methods of printing depending on your design and the product. Here‚Äôs an explanation of our different methods! http://www.customink.com/help_center/screen-vs-digital-printing
 )
 clipwait
 send ^v
@@ -2986,9 +2972,9 @@ clipboard=
 (
 Hi xxxx,
 
-Thank you so much for your email! Iím more than happy to answer any questions you have about the order process.
+Thank you so much for your email! I‚Äôm more than happy to answer any questions you have about the order process.
 
-It's fairly common for us to ship your order out just days (or even one day) before it's set to deliver. Rest assured that your order is still on track for your guaranteed delivery date of xxxxxxxx. Once your order ships, youíll receive an email with tracking information.
+It's fairly common for us to ship your order out just days (or even one day) before it's set to deliver. Rest assured that your order is still on track for your guaranteed delivery date of xxxxxxxx. Once your order ships, you‚Äôll receive an email with tracking information.
 
 Please let me know if there is anything additional I can help you with. You can reply to this email, or call me at 1 (866) 485-8160.
 
@@ -3039,9 +3025,9 @@ if ((skill = 1) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-Iím sorry, due to the nature of the conversation so far it looks like we are not able to help you in chat today. If you have a legitimate request regarding Custom Inkís services please give us a call at 800-293-4232.
+I‚Äôm sorry, due to the nature of the conversation so far it looks like we are not able to help you in chat today. If you have a legitimate request regarding Custom Ink‚Äôs services please give us a call at 800-293-4232.
 
-Iíll now be ending this chat but have a great rest of your day.
+I‚Äôll now be ending this chat but have a great rest of your day.
 )
 clipwait
 send ^v
@@ -3082,7 +3068,7 @@ return
 prevClip := Clipboard
 clipboard=
 (
-Your order is currently pending and weíll start processing it just as soon as we complete payment.
+Your order is currently pending and we‚Äôll start processing it just as soon as we complete payment.
 
 We accept payment from all major credit cards, via check, or purchase order (schools). Simply give us a call at 1-866-779-3570 and we can assist you with completing payment on your order.
 )
@@ -3094,7 +3080,7 @@ Return
 prevClip := Clipboard
 clipboard=
 (
-Thank you so much for getting in touch and sending over the INSERTFORMHERE! Iíve forwarded it to our payments department, and they will let me know if we need anything else to proceed with your order. If so, I'll get back in touch with you and let you know.
+Thank you so much for getting in touch and sending over the INSERTFORMHERE! I‚Äôve forwarded it to our payments department, and they will let me know if we need anything else to proceed with your order. If so, I'll get back in touch with you and let you know.
 )
 close()
 Reporting("formreceived")
@@ -3223,7 +3209,7 @@ else
 {
 clipboard=
 (
-I just wanted to send you a personal thank you for ordering with us. I think that these shirts are going to be perfect for your _________________________. Please know that my service does not end here and, if there is anything else that I can do to help, let me know. Iíve included all of my contact information below just for you.
+I just wanted to send you a personal thank you for ordering with us. I think that these shirts are going to be perfect for your _________________________. Please know that my service does not end here and, if there is anything else that I can do to help, let me know. I‚Äôve included all of my contact information below just for you.
 
 Thanks again, and I hope that you have a great rest of your day!
 )
@@ -3314,7 +3300,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-Currently, the minimum to order glasses is 72. Printing and shipping glassware is very labor intensive, and having a higher minimum allows us to give your order the attention it deserves. I'm happy to show you some pricing if youíre interested in glassware!
+Currently, the minimum to order glasses is 72. Printing and shipping glassware is very labor intensive, and having a higher minimum allows us to give your order the attention it deserves. I'm happy to show you some pricing if you‚Äôre interested in glassware!
 )
 clipwait
 send ^v
@@ -3419,7 +3405,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-Our performance shirts are able to receive a maximum of three colors during the printing process. I can help pick the three best colors to keep in your design and have my design team make those adjustments to your artwork. After the order is placed, weíll send you an email proof of any changes before we print. This is at no cost to you because, we want to make sure you're 100`% satisfied with your custom artwork.
+Our performance shirts are able to receive a maximum of three colors during the printing process. I can help pick the three best colors to keep in your design and have my design team make those adjustments to your artwork. After the order is placed, we‚Äôll send you an email proof of any changes before we print. This is at no cost to you because, we want to make sure you're 100`% satisfied with your custom artwork.
 )
 clipwait
 send ^v
@@ -3535,14 +3521,14 @@ if (which = 1)
 {
 clipboard=
 (
-Would it be possible for you to send some photos of the issue so I can assess the problem? Iím going to send you an email. Please respond to the email with the photos attached. Then, Iíll review them and figure out the best solution!
+Would it be possible for you to send some photos of the issue so I can assess the problem? I‚Äôm going to send you an email. Please respond to the email with the photos attached. Then, I‚Äôll review them and figure out the best solution!
 )
 }
 else
 {
 clipboard=
 (
-I'm sorry to hear that there was a problem with your order and Iím happy to help find a resolution for you!
+I'm sorry to hear that there was a problem with your order and I‚Äôm happy to help find a resolution for you!
 
 Would it be possible to take photos so I can see exactly what happened? If you can respond to this email with those photos attached, I can review them with the print team and figure out the best solution!
 )
@@ -3604,7 +3590,7 @@ So many of our customers were doing amazing work for fundraisers and charities t
 
 http://customink.com/fundraising
 
-If you'd like, Iím happy to take down your information and have a campaign advisor get in touch with you by phone or email to help you get started.
+If you'd like, I‚Äôm happy to take down your information and have a campaign advisor get in touch with you by phone or email to help you get started.
 
 )
 }
@@ -3614,7 +3600,7 @@ clipboard=
 (
 So many of our customers were doing amazing work for fundraisers and charities that we created Booster, a site devoted to helping group organizers use custom t-shirts as a fundraising tool. It's a unique way to not only fundraise, but build awareness of your cause within your community. You get to create an awesome design, set the price, and then use your personalized website to sell the shirts online. The difference between the print cost and price you've selected then goes to the non-profit or individual of your choice!
 
-If you'd like, Iím happy to take down your information and have a campaign advisor get in touch with you by phone or email to help you get started.
+If you'd like, I‚Äôm happy to take down your information and have a campaign advisor get in touch with you by phone or email to help you get started.
 )
 }
 
@@ -3658,7 +3644,7 @@ prevClip := Clipboard
 
 clipboard=
 (
-I think youíre going to love it. Hereís how easy it is to share Custom Ink with your community:
+I think you‚Äôre going to love it. Here‚Äôs how easy it is to share Custom Ink with your community:
 
 - Share out your personalized referral link with your community: [INSERTURL]
 
@@ -3861,7 +3847,7 @@ if (which = 1)
 {
 clipboard=
 (
-Our lab currently doesnít have a feature to rotate clipart, but I would be happy to adjust it for you. Whatís the email address that you have the design saved under? 
+Our lab currently doesn‚Äôt have a feature to rotate clipart, but I would be happy to adjust it for you. What‚Äôs the email address that you have the design saved under? 
 )
 }
 
@@ -3931,7 +3917,7 @@ if (which = 1)
 {
 clipboard=
 (
-Thanks for going over your design with me! Did you have a product style, brand, or color in mind? We have a wide variety of t-shirts and other great products on our website. Iíd be happy to help you find something!
+Thanks for going over your design with me! Did you have a product style, brand, or color in mind? We have a wide variety of t-shirts and other great products on our website. I‚Äôd be happy to help you find something!
 )
 }
 
@@ -4035,7 +4021,7 @@ if (which = 1)
 {
 clipboard=
 (
-Iíll have a quote for you in just a couple of minutes. In the meantime, here are our all-inclusive perks!  
+I‚Äôll have a quote for you in just a couple of minutes. In the meantime, here are our all-inclusive perks!  
 
 *Free artistic adjustments to alignment, art, or text for the best look possible
 *Free proof email
@@ -4077,7 +4063,7 @@ if ((skill = 1) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-I'm sorry that you felt that our pricing was a little expensive! There are many features that can change the cost of your order. If youíre interested, let me know and we can review your order together to give you a better idea of where your price came from. 
+I'm sorry that you felt that our pricing was a little expensive! There are many features that can change the cost of your order. If you‚Äôre interested, let me know and we can review your order together to give you a better idea of where your price came from. 
 )
 clipwait
 send ^v
@@ -4364,7 +4350,7 @@ clipboard=
 (
 As requested, I've canceled your order - I'm sorry we couldn't bring your idea to life. Your card has been refunded INSERTAMOUNT, and you will see that refund reflected in your account in a few days.
 
-Please reach out to me via phone or email if youíd like to discuss a future order, or if there's anything else I can do to help. Thanks again for choosing Custom Ink!
+Please reach out to me via phone or email if you‚Äôd like to discuss a future order, or if there's anything else I can do to help. Thanks again for choosing Custom Ink!
 )
 close()
 Reporting("cancelorder")
@@ -4529,7 +4515,7 @@ I definitely understand that sizing can be a hard one to determine when you are 
 
 How do you feel your shirts are fitting in comparison to this sizing chart?
 
-Each personís body is unique, which may cause items to fit differently. However, sometimes there are manufacturing errors where the item is mislabeled or incorrectly made. Because of these possibilities, we may have you send these items back for a print specialist to inspect.
+Each person‚Äôs body is unique, which may cause items to fit differently. However, sometimes there are manufacturing errors where the item is mislabeled or incorrectly made. Because of these possibilities, we may have you send these items back for a print specialist to inspect.
 
 If these items are incorrect, we will replace them. If they are what we state on our sizing line up, we can work out some special pricing on a new order for items that are needed. Does that work for you?
 )
@@ -4885,7 +4871,7 @@ prevClip := Clipboard
 
 clipboard=
 (
-Our Art Team will send you a proof via email after your order is placed and payment is complete. This not only guarantees youíre able to see your final artwork before itís printed but it allows for changes youíd like to make before your order goes into production. One of the many great perks we offer with every bulk order!
+Our Art Team will send you a proof via email after your order is placed and payment is complete. This not only guarantees you‚Äôre able to see your final artwork before it‚Äôs printed but it allows for changes you‚Äôd like to make before your order goes into production. One of the many great perks we offer with every bulk order!
 )
 clipwait
 send ^v
@@ -4965,7 +4951,7 @@ return
 prevClip := Clipboard
 clipboard=
 (
-If you would like, Iím happy to get you set up with a blank sample of the items you're considering! This allows you to check out the fit and feel before you place your printed order with us! We offer these blank samples at a low cost and can have them delivered to you within 10 days via free shipping. Would that work for you?
+If you would like, I‚Äôm happy to get you set up with a blank sample of the items you're considering! This allows you to check out the fit and feel before you place your printed order with us! We offer these blank samples at a low cost and can have them delivered to you within 10 days via free shipping. Would that work for you?
 )
 close()
 Reporting("sample")
@@ -4982,7 +4968,7 @@ If everything looks good, I can place the order and send you a link to complete 
 3. Delivery Address - is it a business or residence?
 4. How you heard about Custom Ink!
 
-Once payment is completed through the link, you will receive a confirmation email containing your order number, guaranteed delivery date, and a printable invoice. From there, our Art Team will put together any finishing touches and send you a proof email that may require your approval. Once weíre past the proof process, be on the lookout for tracking information and your order!
+Once payment is completed through the link, you will receive a confirmation email containing your order number, guaranteed delivery date, and a printable invoice. From there, our Art Team will put together any finishing touches and send you a proof email that may require your approval. Once we‚Äôre past the proof process, be on the lookout for tracking information and your order!
 
 You can call in at 1-800-293-4232 and I or one of my teammates can take care of everything for you!
 )
@@ -5056,7 +5042,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-What you are describing sounds like an issue we occasionally run into that happens when there is a unique combination of temperature and humidity during the shipping process. If I am correct, the great news is that a quick run through the wash will completely remedy this situation. Please take a picture showing the shirts and reply back to this email so I can be sure. Then, Iíll likely have you toss at least one in the wash to see if that fixes things. If not, I can work on getting the shirts back for our team to inspect
+What you are describing sounds like an issue we occasionally run into that happens when there is a unique combination of temperature and humidity during the shipping process. If I am correct, the great news is that a quick run through the wash will completely remedy this situation. Please take a picture showing the shirts and reply back to this email so I can be sure. Then, I‚Äôll likely have you toss at least one in the wash to see if that fixes things. If not, I can work on getting the shirts back for our team to inspect
 )
 clipwait
 send ^v
@@ -5075,7 +5061,7 @@ if ((skill = 1) || (skill = 2) || (skill = 3) || (skill = 4) || (skill = 5))
 prevClip := Clipboard
 clipboard=
 (
-Thank you so much for getting back to me! I am so sorry about the issues youíve experienced with your order. I can offer a partial refund back on your order of {AMOUNT HERE} for the inconvenience this has all caused. Would that work out for you?
+Thank you so much for getting back to me! I am so sorry about the issues you‚Äôve experienced with your order. I can offer a partial refund back on your order of {AMOUNT HERE} for the inconvenience this has all caused. Would that work out for you?
 )
 clipwait
 send ^v
@@ -5436,7 +5422,7 @@ if (which = 1)
 {
 clipboard=
 (
-This design work will just take a few minutes! Iíll be right back with a link to your design. 
+This design work will just take a few minutes! I‚Äôll be right back with a link to your design. 
 )
 }
 
@@ -5675,7 +5661,7 @@ Thank you for placing your order with Custom Ink!
 
 ***INSERTAHK***
 
-Please know that my service does not end here and if there is anything else that I can do to help with any future orders you may have, I can certainly help guide you in the right direction so that you have the perfect product and design for your group!    Iíve included all of my contact information below.
+Please know that my service does not end here and if there is anything else that I can do to help with any future orders you may have, I can certainly help guide you in the right direction so that you have the perfect product and design for your group!    I‚Äôve included all of my contact information below.
 )
 close()
 Reporting("orderplaced")
@@ -5716,7 +5702,7 @@ Every bulk Custom Ink order comes with:
 *Artistic adjustments to alignment, art, or text for the best print possible
 *Free proof email to review any adjustments before printing
 *Free shipping with a guaranteed delivery date
-*Custom Inkís quality and money-back guarantee
+*Custom Ink‚Äôs quality and money-back guarantee
 ---------------------------------------------------------------------------------------------
 )
 close()
@@ -5795,7 +5781,7 @@ Return
 prevClip := Clipboard
 clipboard=
 (
-Your order is placed and currently pending. Weíll start processing it just as soon as payment is completed, which you can do by following the link below:
+Your order is placed and currently pending. We‚Äôll start processing it just as soon as payment is completed, which you can do by following the link below:
 
 %prevClip%
 )
@@ -5807,9 +5793,9 @@ Return
 prevClip := Clipboard
 clipboard=
 (
-Thank you for approving your proof! Iíve forwarded your order to our printing team.
+Thank you for approving your proof! I‚Äôve forwarded your order to our printing team.
 
-Your schedule is still guaranteed for your original delivery date of xxxxxxxx. Once your order ships, youíll receive an email with tracking information.
+Your schedule is still guaranteed for your original delivery date of xxxxxxxx. Once your order ships, you‚Äôll receive an email with tracking information.
 
 Please let me know if you need help with anything else. You can reply to this email, or call us at 1-866-485-8160.
 )
@@ -5833,7 +5819,7 @@ clipboard=
 (
 I noticed your order has delivered, and I wanted to check in.  How did it turn out?
 
-Also, I know you have INSERTEVENT coming up, and I wanted to see how I can help. I thought this PRODUCT/DESIGN would be great to get you started.  If itís similar in size to your last order, hereís some pricing for that recommendation:
+Also, I know you have INSERTEVENT coming up, and I wanted to see how I can help. I thought this PRODUCT/DESIGN would be great to get you started.  If it‚Äôs similar in size to your last order, here‚Äôs some pricing for that recommendation:
 
 INSERTQUOTE
 
@@ -5857,7 +5843,7 @@ First, let's find a time that is most convenient for you to come see us. Use the
 
 INSERTLOCATIONSPECIFICLINKHERE
 
-Once the online sign up is completed, youíre all set! Feel free to reach us at 855-207-5364 or appointments@customink.com if you have additional questions before you come in.
+Once the online sign up is completed, you‚Äôre all set! Feel free to reach us at 855-207-5364 or appointments@customink.com if you have additional questions before you come in.
 
 Thanks again for setting up your appointment. We can't wait to meet you!
 )
