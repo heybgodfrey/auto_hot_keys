@@ -635,13 +635,12 @@ prevClip := Clipboard
 
 clipboard=
 (
-Thank you for placing your order with us for your customized art design. We’re excited to see what the artists create for you to bring your idea to life! Below are the details of your order:
+Thank you for placing your order with us for your Design Service. We’re excited to see what the artists create for you to bring your idea to life! Below are the details of your order:
 
 DESIGN UPGRADE or CUSTOM DESIGN PACKAGE or MULTI-PACKAGE ($COSTTHEYPAID)
-Your package includes #OFFREEREVISIONS based on your package
-Additional revisions are $10 per revision
-A quick reminder: any designs created by Custom Ink will not be distributed, but they will appear on the product you order
-An artist will reach out directly to you in a week or less with your custom design. In the meantime, if you have any questions, please reach out to me and I would be happy to assist you.
+A quick reminder: any designs created by Custom Ink will not be distributed, but they will appear on the product you order.
+
+We will reach out directly to you in a week or less with your design. In the meantime, if you have any questions, please reach out to me and I would be happy to assist you.
 )
 
 clipwait
