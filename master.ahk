@@ -635,7 +635,7 @@ prevClip := Clipboard
 
 clipboard=
 (
-Thank you for placing your order with us for your Design Service. We’re excited to see what the artists create for you to bring your idea to life! Below are the details of your order:
+Thank you for placing your order with us for your Design Service. We're excited to see what the artists create for you to bring your idea to life! Below are the details of your order:
 
 DESIGN UPGRADE or CUSTOM DESIGN PACKAGE or MULTI-PACKAGE ($COSTTHEYPAID)
 A quick reminder: any designs created by Custom Ink will not be distributed, but they will appear on the product you order.
